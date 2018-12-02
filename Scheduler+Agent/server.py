@@ -218,6 +218,9 @@ class serv:
                         serv.lctx.debug(len(l))
                     f.close()
                     serv.lctx.debug("Done receiving results : " + filepath)
+		    # Sample code for sending exec host signal that file receive complete, it can proceed further but code is not working. Check client.py:80 for client side code
+		    # response = "{}".format("FILECOMPLETE")
+                    # self.request.send(response)
                     return
 
                 if cmd == "DAYTONA_STOP_SERVER":

@@ -75,6 +75,11 @@ class TCPClient ():
         l = f.read(8192)
       f.close()
       self.lctx.debug("Done Sending")
+      time.sleep(1)
+      # TODO: sleep is a temporary fix assuming there is a 500 msec delay on receiver side...ideally I would like to receive a ACK from scheduler after receiving result.tgz, below is the implementation for the same but it is not working and require some investigation
+      # response = sock.recv(8192)
+      # if response == "FILECOMPLETE":
+      #    self.lctx.debug(response)
       sock.shutdown(socket.SHUT_WR)
     except IOError:
       self.lctx.error("Server not responding, perhaps server not running")
